@@ -3,12 +3,12 @@ using Logicea.Cards.Data.Models;
 
 namespace Logicea.Cards.Services.Contracts
 {
-    internal interface ICardService
+    public interface ICardService
     {
-        string CreateOrUpdateCard(Task<Card> entity);
-        Task<bool> DeleteCard(string cardID, string userID);
-        Task<Card> GetCard(string cardID);
-        Task<IEnumerable<Card>> GetCardsByUser(string userID);
-        Task<IEnumerable<Card>> SearchCards(string userID, SearchModel seachModel);
+        Task<int?> CreateOrUpdateCard(Card entity);
+        Task DeleteCard(int cardID, int userID);
+        Task<Card?> GetCard(int cardID);
+        Task<IEnumerable<Card>> GetCardsByUser(int userID);
+        Task<IEnumerable<Card>> SearchCards(int userID, SearchModel searchModel);
     }
 }

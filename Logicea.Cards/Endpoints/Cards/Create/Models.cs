@@ -21,6 +21,7 @@ namespace Cards.Create
                 .MaximumLength(10).WithMessage("Card Name too long!");
 
             RuleFor(x => x.Description)
+                .NotEmpty().WithMessage("Description must not be empty")
                 .MinimumLength(100).WithMessage("Card Description is too short!");
 
             RuleFor(x => x.Color)
@@ -41,6 +42,6 @@ namespace Cards.Create
     internal sealed class Response
     {
         public string Message => "Card saved!";
-        public string? CardID { get; set; }
+        public int? CardID { get; set; }
     }
 }

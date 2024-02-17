@@ -41,6 +41,6 @@ namespace Cards.Update
     internal sealed class Response
     {
         public string Message => "Card saved!";
-        public string? CardID { get; set; }
+        public int? CardID { get; set; }
     }
 }

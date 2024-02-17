@@ -25,9 +25,9 @@ namespace Cards.Update
 
         public override async Task HandleAsync(Request r, CancellationToken c)
         {
-            var entity = Map.ToEntityAsync(r);
+            var entity = Map.ToEntity(r);
 
-            Response.CardID = _cardService.CreateOrUpdateCard(entity);
+            Response.CardID =await _cardService.CreateOrUpdateCard(entity);
 
             if (Response.CardID is null)
                 ThrowError("Unable to save the card!");

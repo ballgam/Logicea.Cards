@@ -4,10 +4,10 @@ namespace Cards.Delete
 {
     internal sealed class Request
     {
-        public string CardID { get; set; } = default!;
+        public int CardID { get; set; } = default!;
 
         [FromClaim]
-        public string UserID { get; set; } = default!;
+        public int UserID { get; set; } = default!;
     }
 
 

@@ -21,16 +21,17 @@ namespace Cards.Delete
                 keyName: "User_Delete_Own_Card",
                 behavior: Apply.ToThisEndpoint,
                 groupNames: "UserCards");
+
+            Summary(s =>
+            {
+                s.Summary = "Endpoint for deleting a card";
+            });
         }
 
 
         public override async Task HandleAsync(Request r, CancellationToken c)
         {
-            bool isDeleted = await _cardService.DeleteCard(r.CardID, r.UserID);
-            if (!isDeleted)
-            {
-                ThrowError("Card deletion failed");
-            }
+            await _cardService.DeleteCard(r.CardID, r.UserID);
 
             Response.Message = "Card Deleted Successfully";
         }

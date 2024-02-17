@@ -21,13 +21,25 @@ namespace Cards.Create
                 keyName: "User_Create_Own_Card",
                 behavior: Apply.ToThisEndpoint,
                 groupNames: "UserCards");
+
+            Summary(s =>
+            {
+                s.Summary = "Endpoint for creating a new card";
+                s.ExampleRequest = new Request
+                {
+                    Color = "#AABBCC",
+                    Description = "A testing card",
+                    Name = "Testing Card",
+                    Status = Logicea.Cards.Data.Entities.CardStatus.ToDo
+                };
+            });
         }
 
         public override async Task HandleAsync(Request r, CancellationToken c)
         {
-            var entity = Map.ToEntityAsync(r);
+            var entity = Map.ToEntity(r);
 
-            Response.CardID = _cardService.CreateOrUpdateCard(entity);
+            Response.CardID = await _cardService.CreateOrUpdateCard(entity);
 
             if (Response.CardID is null)
                 ThrowError("Unable to save the card!");

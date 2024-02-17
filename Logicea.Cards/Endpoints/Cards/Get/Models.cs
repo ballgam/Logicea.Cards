@@ -4,7 +4,7 @@ namespace Cards.Get
 {
     internal sealed class Request
     {
-        public string CardID { get; internal set; } = default!;
+        public int CardID { get; internal set; } = default!;
     }
 
 

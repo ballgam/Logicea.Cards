@@ -17,7 +17,7 @@ namespace Cards.Search
 
         public override void Configure()
         {
-            Get("/cards/search?filter={Filter}&value={Value}&page={Page}&size={Size}");
+            Get("/cards/search");
             Claims(Claim.UserID);
             AccessControl(
                 keyName: "User_Search_Own_Cards",

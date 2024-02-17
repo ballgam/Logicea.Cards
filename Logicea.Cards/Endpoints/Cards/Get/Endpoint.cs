@@ -17,6 +17,11 @@ namespace Cards.Get
         {
             Get("/cards/{CardID}");
             Claims(Claim.UserID);
+
+            Summary(s =>
+            {
+                s.Summary = "Endpoint for creating a new card";
+            });
         }
 
         public override async Task HandleAsync(Request r, CancellationToken c)

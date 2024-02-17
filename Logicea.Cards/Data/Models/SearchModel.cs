@@ -1,6 +1,6 @@
 ﻿namespace Logicea.Cards.Data.Models
 {
-    internal class SearchModel
+    public class SearchModel
     {
         public string Filter { get; set; } = default!;
 

@@ -7,7 +7,7 @@ namespace Cards.GetCards
     {
 
         [FromClaim]
-        public string UserID { get; set; } = default!;
+        public int UserID { get; set; } = default!;
     }
 
 
